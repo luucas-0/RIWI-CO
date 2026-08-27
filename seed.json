@@ -1,0 +1,56 @@
+{
+  "users": [
+    {
+      "rw_id": "11111111-1111-4111-8111-111111111111",
+      "rw_name": "Lucas Mortigo",
+      "rw_email": "lucas@riwi.co",
+      "rw_role": "admin"
+    },
+    {
+      "rw_id": "22222222-2222-4222-8222-222222222222",
+      "rw_name": "Ana Gomez",
+      "rw_email": "ana@riwi.co",
+      "rw_role": "member"
+    },
+    {
+      "rw_id": "33333333-3333-4333-8333-333333333333",
+      "rw_name": "Mateo Ruiz",
+      "rw_email": "mateo@riwi.co",
+      "rw_role": "member"
+    }
+  ],
+  "channels": [
+    {
+      "rw_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "rw_name": "engineering",
+      "rw_owner_user_id": "11111111-1111-4111-8111-111111111111"
+    },
+    {
+      "rw_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+      "rw_name": "marketing",
+      "rw_owner_user_id": "22222222-2222-4222-8222-222222222222"
+    }
+  ],
+  "channel_members": [
+    { "rw_channel_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa", "rw_user_id": "11111111-1111-4111-8111-111111111111" },
+    { "rw_channel_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa", "rw_user_id": "22222222-2222-4222-8222-222222222222" },
+    { "rw_channel_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb", "rw_user_id": "22222222-2222-4222-8222-222222222222" },
+    { "rw_channel_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb", "rw_user_id": "33333333-3333-4333-8333-333333333333" }
+  ],
+  "messages": [
+    {
+      "rw_id": "10000000-0000-4000-8000-000000000001",
+      "rw_channel_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "rw_sender_user_id": "11111111-1111-4111-8111-111111111111",
+      "rw_content": "The deployment pipeline is stable after the recent rollback.",
+      "rw_status": "sent"
+    },
+    {
+      "rw_id": "10000000-0000-4000-8000-000000000002",
+      "rw_channel_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+      "rw_sender_user_id": "22222222-2222-4222-8222-222222222222",
+      "rw_content": "We need the marketing campaign budget approved before Friday.",
+      "rw_status": "sent"
+    }
+  ]
+}
