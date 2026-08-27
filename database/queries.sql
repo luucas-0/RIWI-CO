@@ -24,7 +24,8 @@ WHERE m.rw_channel_id = $2
 ORDER BY m.rw_created_at DESC, m.rw_id DESC
 LIMIT $3;
 
--- Consulta 3: Recuperación de contexto vectorial para el Copiloto validada en SQL mediante permisos.
+-- Consulta 3: Recuperación vectorial. El actor se toma solo del contexto transaccional;
+-- RLS también impide filas ajenas incluso si esta condición se modifica por error.
 SELECT
   m.rw_id,
   m.rw_channel_id,
@@ -36,7 +37,8 @@ WHERE m.rw_deleted_at IS NULL
   AND m.rw_channel_id IN (
     SELECT rw_channel_id
     FROM rw_channel_members
-    WHERE rw_user_id = $2::uuid
+    WHERE rw_user_id = nullif(current_setting('app.current_user_id', true), '')::uuid
+      AND rw_deleted_at IS NULL
   )
 ORDER BY m.rw_embedding <=> $1::vector
 LIMIT $3;

@@ -7,4 +7,5 @@ export const config = {
   postgresUrl: process.env.POSTGRES_URL || 'postgresql://postgres:postgres@localhost:5432/bd_lucas_mortigo_clan',
   openAiApiKey: process.env.OPENAI_API_KEY || '',
   openAiModel: process.env.OPENAI_MODEL || 'gpt-4o-mini',
+  corsOrigin: process.env.CORS_ORIGIN || 'http://localhost:3000',
 };

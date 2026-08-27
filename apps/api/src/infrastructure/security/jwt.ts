@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import crypto from 'crypto';
 import { config } from '../config/env.js';
 
 export type JwtPayload = {
@@ -10,11 +11,13 @@ export type JwtPayload = {
 };
 
 export function signAccessToken(payload: JwtPayload) {
-  return jwt.sign(payload, config.jwtSecret, { expiresIn: '15m' });
+  const { sub, email, role } = payload;
+  return jwt.sign({ sub, email, role }, config.jwtSecret, { expiresIn: '15m' });
 }
 
 export function signRefreshToken(payload: JwtPayload) {
-  return jwt.sign(payload, config.jwtRefreshSecret, { expiresIn: '7d' });
+  const { sub, email, role } = payload;
+  return jwt.sign({ sub, email, role }, config.jwtRefreshSecret, { expiresIn: '7d', jwtid: crypto.randomUUID() });
 }
 
 export function verifyAccessToken(token: string): JwtPayload {
